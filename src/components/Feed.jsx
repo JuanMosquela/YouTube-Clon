@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Skeleton, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { fetchFromAPI } from "../utils/fetchFromAPI"
 import { SideBar, Videos } from './'
@@ -11,9 +11,11 @@ const Feed = () => {
 
     const [videos, setVideos] = useState([])
 
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => setVideos(data.items))
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => setVideos(data.items)).then(() => setLoading(false))
     
       
     }, [selectedCategory])
@@ -23,7 +25,7 @@ const Feed = () => {
 
   return (
     <Stack sx={{ backgroundColor:'#FFF', flexDirection: { sx: 'column', md: 'row'} }}>
-        <Box sx={{ scrollbarColor:'red',   height: { s: 'auto', md:'92vh' },  px: { sx:0, md:2 }}}>
+        <Box sx={{  height: { s: 'auto', md:'92vh' },  px: { sx:0, md:2 }}}>
             <SideBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             <Typography
                 className="copyright"
@@ -39,17 +41,99 @@ const Feed = () => {
         <Box p={2} sx={{ overflowY:'auto', height:'90vh', flex:2 }}>
             <Typography
                 variant="h4"
-                fontWeight='bold'
+                
                 mb={2}
                 sx={{
-                    color:'000'
+                    color:'#333'
                 }}
                 >
-                {selectedCategory}
-                <span style={{ color:'#F31503' }}> videos</span>
+                {selectedCategory} videos
+                
             </Typography>
 
-            <Videos videos={videos} />
+            {
+                loading ? (
+                    <Stack sx={{ display:'flex', justifyContent:'center', gap:'1rem', flexWrap:'wrap', flexDirection: { sx: 'column', md: 'row'} }}>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </Stack>
+                    
+
+                ) : (
+
+                    <Videos videos={videos} />
+                )
+
+            }
+
 
 
         </Box>

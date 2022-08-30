@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Skeleton, CircularProgress } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { Videos } from "./";
@@ -9,19 +9,24 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
+  const [loading, setLoading] = useState(true)
   const [videos, setVideos] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet&statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]))
+      .then((data) => setVideoDetail(data.items[0]).then(() => setLoading(false)))
 
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
       .then((data) => setVideos(data.items))
   }, [id]);
 
    
-  if(!videoDetail?.snippet) return <h1>loading...</h1>  ;
+  if(!videoDetail?.snippet) return (
+    <Box sx={{ display: 'flex', backgroundColor:'#FFF', justifyContent:'center', alignItems:'center', minHeight:'95vh' }}>
+      <CircularProgress />
+    </Box>
+  )  ;
 
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
 
@@ -29,8 +34,8 @@ const VideoDetail = () => {
     <Box minHeight="95vh" sx={{ backgroundColor:'#FFF' }}>
       <Stack direction={{ md: "row", xs: "column" }} sx={{ backgroundColor:'#FFF' }}>
         <Box flex={3} sx={{ backgroundColor:'#FFF' }}>
-          <Box sx={{ width: "100%", top: "86px", backgroundColor:'#FFF' }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
+          <Box sx={{ width: "100%", top: "86px", backgroundColor:'#FFF' }}>            
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />            
             <Typography variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
