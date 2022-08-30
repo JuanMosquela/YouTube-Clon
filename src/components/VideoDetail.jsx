@@ -28,9 +28,9 @@ const VideoDetail = () => {
     </Box>
   )  ;
 
-  const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+  const { snippet: { title, channelId, channelTitle, description }, statistics: { viewCount, likeCount } } = videoDetail;
 
-  console.log(videoDetail)
+ 
 
   return (
     <Box minHeight="95vh" sx={{ backgroundColor:'#FFF' }}>
@@ -41,7 +41,7 @@ const VideoDetail = () => {
             <Typography variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
+            <Stack direction="column" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
               <Link to={`/channel/${channelId}`}>
                 <Typography variant={{ sm: "subtitle1", md: 'h6' }} sx={{
                         display:'flex',                        
@@ -53,15 +53,23 @@ const VideoDetail = () => {
                 </Typography>
               </Link>
               <Stack direction="row" gap="20px" alignItems="center">
-                <Typography variant="body1" sx={{ color:'#000', fontSize:'15px'}}>
+                <Typography variant="body1" sx={{ color:'#000', fontSize:'15px', mb:'15px'}}>
                   {parseInt(viewCount).toLocaleString()} views
                 </Typography>
-                <Typography variant="body1" sx={{color:'#000', fontSize:'15px' }}>
+                <Typography variant="body1" sx={{color:'#000', fontSize:'15px', mb:'15px' }}>
                   {parseInt(likeCount).toLocaleString()} likes
                 </Typography>
+                
+              </Stack> 
+              <Stack>
+              <Typography direction='row' variant="body1" sx={{color:'#000', fontSize:'15px' }}>
+                  {description}
+                </Typography>    
+
               </Stack>
-              
+                      
             </Stack>
+
           </Box>
         </Box>
         <Box flex={1} px={2} py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >

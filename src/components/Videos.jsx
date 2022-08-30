@@ -5,6 +5,8 @@ import { VideoCard, ChannelCard } from './'
 
 const Videos = ({ videos }) => {
 
+    console.log(videos)
+
     if(!videos?.length) return (
         <Stack sx={{ display:'flex', justifyContent:'center', gap:'1rem', flexWrap:'wrap', flexDirection: { sx: 'column', md: 'row'} }}>
                         <Box sx={{ width: { md:'280px', xs:'100%'} }} >

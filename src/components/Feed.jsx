@@ -19,6 +19,8 @@ const Feed = () => {
     
       
     }, [selectedCategory])
+
+    console.log(videos)
     
 
 

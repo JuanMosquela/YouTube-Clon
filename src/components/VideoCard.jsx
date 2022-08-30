@@ -3,9 +3,7 @@ import { CheckCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { demoVideoUrl, demoVideoTitle, demoChannelUrl, demoChannelTitle } from '../utils/constants'
 
-const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
-
-   
+const VideoCard = ({ video: { id: { videoId }, snippet, statistics } }) => {   
 
    
   return (
@@ -15,7 +13,7 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
                 <CardMedia 
                     image={snippet?.thumbnails?.high?.url}
                     alt={snippet?.title}
-                    sx={{ width: 358, height:180}}
+                    sx={{ width: '100%', height:180}}
                 />
            
         </Link>
@@ -45,6 +43,7 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 
                 </Typography>
             </Link>
+            
         </CardContent>
     </Card>
   )
