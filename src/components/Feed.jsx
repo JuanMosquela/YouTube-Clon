@@ -120,6 +120,62 @@ const Feed = () => {
                             </Box>
 
                         </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
+                        <Box sx={{ width: { md:'280px', xs:'100%'} }} >
+                            <Skeleton variant="rectangular" sx={{ width:'100%' }} height={188} />
+                            <Box sx={{ pt: 0.5 }}>
+                                <Skeleton sx={{ fontSize:'2rem' }} />
+                                <Skeleton sx={{ fontSize:'2rem' }} width="60%" />
+                            </Box>
+
+                        </Box>
                         
                         
                         
