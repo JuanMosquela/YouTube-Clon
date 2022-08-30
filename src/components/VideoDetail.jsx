@@ -9,13 +9,13 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
-  const [loading, setLoading] = useState(true)
+  
   const [videos, setVideos] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet&statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]).then(() => setLoading(false)))
+      .then((data) => setVideoDetail(data.items[0]))
 
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
       .then((data) => setVideos(data.items))
@@ -29,6 +29,8 @@ const VideoDetail = () => {
   )  ;
 
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+
+  console.log(videoDetail)
 
   return (
     <Box minHeight="95vh" sx={{ backgroundColor:'#FFF' }}>
@@ -44,20 +46,21 @@ const VideoDetail = () => {
                 <Typography variant={{ sm: "subtitle1", md: 'h6' }} sx={{
                         display:'flex',                        
                         alignItems:'center',
-                        fontSize:'12px'
+                        fontSize:'15px'
                     }}  >
                   {channelTitle}
-                  <CheckCircleIcon sx={{ fontSize: "12px", color: "gray", ml: "5px" }} />
+                  <CheckCircleIcon sx={{ fontSize: "15px", color: "gray", ml: "5px" }} />
                 </Typography>
               </Link>
               <Stack direction="row" gap="20px" alignItems="center">
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                <Typography variant="body1" sx={{ color:'#000', fontSize:'15px'}}>
                   {parseInt(viewCount).toLocaleString()} views
                 </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                <Typography variant="body1" sx={{color:'#000', fontSize:'15px' }}>
                   {parseInt(likeCount).toLocaleString()} likes
                 </Typography>
               </Stack>
+              
             </Stack>
           </Box>
         </Box>
