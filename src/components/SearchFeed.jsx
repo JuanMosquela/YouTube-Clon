@@ -28,7 +28,7 @@ const SearchFeed = () => {
                 fontWeight='bold'
                 mb={2}
                 sx={{
-                    color:'000'
+                    color:'#333'
                 }}
                 >
                   Resultados de busqueda de
