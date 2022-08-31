@@ -4,8 +4,7 @@ import { ChannelDetail, Feed, Navbar, SearchFeed, VideoDetail } from './componen
 
 function App() {
   return (
-    <BrowserRouter>
-    <Box sx={{ backgroundColor:'#000' }}>
+    <BrowserRouter>    
       <Navbar />
       <Routes>
         <Route path='/' element={ <Feed />} />
@@ -14,7 +13,7 @@ function App() {
         <Route path='/search/:searchTerm' element={ <SearchFeed />} />
 
       </Routes>
-    </Box>
+    
     </BrowserRouter>   
     
   );

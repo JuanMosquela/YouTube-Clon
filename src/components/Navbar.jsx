@@ -10,7 +10,7 @@ const Navbar = () => {
         direction='row'
         alignItems='center' 
       
-        sx={{padding: '15px 5rem', position:'sticky', background:'#FFF', top:0, justifyContent:'space-between' }}
+        sx={{padding: {md: '15px 5rem', xs:'15px 5px'}, position:'sticky', background:'#FFF', top:0, justifyContent:'space-between' }}
      >
         <Link to='/' style={{ display:'flex', alignItems:'center' }}>
             <img src={logo} alt="logo" height={45} />
